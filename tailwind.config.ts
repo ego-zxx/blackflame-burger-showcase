@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Montserrat', 'sans-serif'],
+        display: ['Playfair Display', 'serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,16 +51,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        gold: "hsl(var(--flame-gold))",
+        amber: "hsl(var(--flame-amber))",
+        charcoal: "hsl(var(--charcoal))",
+        smoke: "hsl(var(--smoke-gray))",
+      },
+      boxShadow: {
+        'glow': 'var(--glow-gold)',
+        'intense': 'var(--shadow-intense)',
       },
       borderRadius: {
         lg: "var(--radius)",
