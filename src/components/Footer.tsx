@@ -2,7 +2,7 @@ import { Flame, MapPin, Phone, Mail, Facebook, Instagram, Twitter } from "lucide
 
 const Footer = () => {
   return (
-    <footer className="bg-charcoal border-t border-border">
+    <footer id="contact" className="bg-charcoal border-t border-border">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}

@@ -1,3 +1,4 @@
+import Preloader from "@/components/Preloader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedBurgers from "@/components/FeaturedBurgers";
@@ -7,14 +8,17 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      <Preloader />
+      <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
       <FeaturedBurgers />
       <Specials />
       <Testimonials />
       <Footer />
-    </div>
+      </div>
+    </>
   );
 };
 

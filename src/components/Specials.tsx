@@ -1,3 +1,4 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import friesImage from "@/assets/fries.jpg";
@@ -26,11 +27,15 @@ const specials = [
 ];
 
 const Specials = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   return (
-    <section className="py-24 bg-charcoal">
-      <div className="container mx-auto px-6">
+    <section id="specials" className="py-24 bg-charcoal">
+      <div className="container mx-auto px-6" ref={elementRef}>
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-4">
+        <div className={`text-center mb-16 space-y-4 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
           <h2 className="text-5xl md:text-6xl font-black">
             Perfect <span className="text-gold">Pairings</span>
           </h2>
@@ -41,10 +46,15 @@ const Specials = () => {
 
         {/* Specials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {specials.map((special) => (
+          {specials.map((special, index) => (
             <Card 
               key={special.name}
-              className="bg-card border-border overflow-hidden group hover:border-gold/50 transition-all duration-300"
+              className={`bg-card border-border overflow-hidden group hover:border-gold/50 transition-all duration-500 ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{
+                transitionDelay: isVisible ? `${index * 200}ms` : "0ms",
+              }}
             >
               {/* Image */}
               <div className="relative overflow-hidden h-64">

@@ -1,3 +1,4 @@
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ShoppingCart } from "lucide-react";
@@ -38,11 +39,15 @@ const burgers = [
 ];
 
 const FeaturedBurgers = () => {
+  const { elementRef, isVisible } = useScrollAnimation();
+
   return (
     <section id="menu" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6" ref={elementRef}>
         {/* Section Header */}
-        <div className="text-center mb-16 space-y-4">
+        <div className={`text-center mb-16 space-y-4 transition-all duration-700 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+        }`}>
           <h2 className="text-5xl md:text-6xl font-black">
             Featured <span className="text-gold">Burgers</span>
           </h2>
@@ -53,10 +58,15 @@ const FeaturedBurgers = () => {
 
         {/* Burgers Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {burgers.map((burger) => (
+          {burgers.map((burger, index) => (
             <Card 
               key={burger.name} 
-              className="bg-card border-border overflow-hidden group hover:border-gold/50 transition-all duration-300 hover:shadow-glow"
+              className={`bg-card border-border overflow-hidden group hover:border-gold/50 transition-all duration-500 hover:shadow-glow ${
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{
+                transitionDelay: isVisible ? `${index * 150}ms` : "0ms",
+              }}
             >
               {/* Image */}
               <div className="relative overflow-hidden aspect-square">
