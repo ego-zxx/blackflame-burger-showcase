@@ -43,10 +43,10 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6">
-              Order Online
+            <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6" onClick={() => window.location.href = '/menu'}>
+              Order Now
             </Button>
-            <Button variant="outline-gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6">
+            <Button variant="outline-gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6" onClick={() => window.location.href = '/menu'}>
               View Menu
             </Button>
           </div>
@@ -54,7 +54,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator - Arrow */}
-      <div className="absolute bottom-8 left-8 md:left-12 animate-bounce">
+      <div className="absolute bottom-8 right-8 md:right-12 animate-bounce">
         <div className="flex flex-col items-center gap-1">
           <span className="text-xs md:text-sm text-gold/70 font-medium">Scroll</span>
           <svg 

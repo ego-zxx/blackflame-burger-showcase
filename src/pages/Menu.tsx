@@ -3,7 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import FloatingCart from "@/components/FloatingCart";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useCart } from "@/contexts/CartContext";
+import { useToast } from "@/hooks/use-toast";
 
 // Import burger images
 import classicBurger from "@/assets/burger-classic.jpg";
@@ -100,6 +103,8 @@ const categories = [
 const Menu = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const { elementRef, isVisible } = useScrollAnimation();
+  const { addToCart } = useCart();
+  const { toast } = useToast();
 
   const filteredItems =
     selectedCategory === "all"
@@ -109,6 +114,7 @@ const Menu = () => {
   return (
     <>
       <Navbar />
+      <FloatingCart />
       <div className="min-h-screen bg-background pt-20">
         {/* Hero Section */}
         <section className="py-20 px-6">
@@ -171,8 +177,23 @@ const Menu = () => {
                     <div className="space-y-2">
                       <h3 className="text-2xl font-bold">{item.name}</h3>
                       <p className="text-muted-foreground">{item.description}</p>
-                      <Button variant="outline-gold" className="w-full mt-4">
-                        Add to Order
+                      <Button 
+                        variant="outline-gold" 
+                        className="w-full mt-4"
+                        onClick={() => {
+                          addToCart({
+                            id: item.id,
+                            name: item.name,
+                            price: item.price,
+                            image: item.image,
+                          });
+                          toast({
+                            title: "Added to cart",
+                            description: `${item.name} has been added to your cart.`,
+                          });
+                        }}
+                      >
+                        Add to Cart
                       </Button>
                     </div>
                   </CardContent>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navLinks = [
-    { name: "Home", href: "#home", type: "anchor" },
+    { name: "Home", href: "/", type: "link" },
     { name: "Menu", href: "/menu", type: "link" },
     { name: "Order Online", href: "#order", type: "anchor" },
     { name: "Specials", href: "#specials", type: "anchor" },
