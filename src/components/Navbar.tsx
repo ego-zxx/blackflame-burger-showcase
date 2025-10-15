@@ -1,14 +1,15 @@
 import { Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Menu", href: "#menu" },
-    { name: "Order Online", href: "#order" },
-    { name: "Specials", href: "#specials" },
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", type: "anchor" },
+    { name: "Menu", href: "/menu", type: "link" },
+    { name: "Order Online", href: "#order", type: "anchor" },
+    { name: "Specials", href: "#specials", type: "anchor" },
+    { name: "Testimonials", href: "#testimonials", type: "anchor" },
+    { name: "Contact", href: "#contact", type: "anchor" },
   ];
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -41,16 +42,26 @@ const Navbar = () => {
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleSmoothScroll(e, link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-gold transition-colors duration-300"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.type === "link" ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-sm font-medium text-foreground/80 hover:text-gold transition-colors duration-300"
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleSmoothScroll(e, link.href)}
+                  className="text-sm font-medium text-foreground/80 hover:text-gold transition-colors duration-300"
+                >
+                  {link.name}
+                </a>
+              )
+            )}
           </div>
 
           {/* CTA Button */}

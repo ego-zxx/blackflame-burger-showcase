@@ -53,10 +53,21 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-gold/50 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-3 bg-gold rounded-full" />
+      {/* Scroll Indicator - Arrow */}
+      <div className="absolute bottom-8 left-8 md:left-12 animate-bounce">
+        <div className="flex flex-col items-center gap-1">
+          <span className="text-xs md:text-sm text-gold/70 font-medium">Scroll</span>
+          <svg 
+            className="w-6 h-6 md:w-8 md:h-8 text-gold" 
+            fill="none" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth="2" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
         </div>
       </div>
     </section>
