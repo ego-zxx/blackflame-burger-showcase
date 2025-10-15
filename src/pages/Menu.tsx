@@ -154,7 +154,7 @@ const Menu = () => {
               {filteredItems.map((item, index) => (
                 <Card
                   key={item.id}
-                  className={`overflow-hidden group hover:shadow-glow transition-all duration-500 ${
+                  className={`overflow-hidden group hover:shadow-glow transition-all duration-500 animate-fade-in ${
                     isVisible
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"

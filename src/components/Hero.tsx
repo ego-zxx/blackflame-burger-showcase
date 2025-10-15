@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Flame } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-burger.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Image with Overlay */}
@@ -43,10 +46,10 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-            <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6" onClick={() => window.location.href = '/menu'}>
+            <Button variant="gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6" onClick={() => navigate('/menu')}>
               Order Now
             </Button>
-            <Button variant="outline-gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6" onClick={() => window.location.href = '/menu'}>
+            <Button variant="outline-gold" size="lg" className="w-full sm:w-auto text-lg px-10 py-6" onClick={() => navigate('/menu')}>
               View Menu
             </Button>
           </div>
